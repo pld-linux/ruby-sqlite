@@ -1,5 +1,5 @@
 %define	ruby_sitearchdir	%(ruby -r rbconfig -e 'print Config::CONFIG["archdir"]')
-%define	ruby_libdir	%(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
+%define	ruby_libdir		%(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
 %define tarname sqlite-ruby
 Summary:	SQLite module for Ruby
 Summary(pl):	Modu³ SQLite dla Ruby
@@ -27,7 +27,9 @@ Modu³ SQLite dla Ruby.
 
 %build
 ruby extconf.rb
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -42,5 +44,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README*
-%{ruby_sitearchdir}/*
+%attr(755,root,root) %{ruby_sitearchdir}/*
 %{ruby_libdir}/sqlite.rb
