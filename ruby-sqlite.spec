@@ -4,7 +4,7 @@
 Summary:	SQLite module for Ruby
 Summary(pl):	Modu³ SQLite dla Ruby
 Name:		ruby-sqlite
-Version:	1.0
+Version:	1.1.0
 Release:	1
 License:	GPL
 Group:		Development/Languages
