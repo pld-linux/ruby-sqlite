@@ -9,10 +9,10 @@ Group:		Development/Languages
 Source0:	http://dl.sourceforge.net/%{tarname}/%{tarname}-%{version}.tar.gz
 # Source0-md5:	cc22e5ce8b3ddcb3de27eb4d7eaa23bc
 URL:		http://sqlite-ruby.sourceforge.net
-BuildRequires:	rpmbuild(macros) >= 1.263
+BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby-modules
 BuildRequires:	sqlite-devel
-Requires:	ruby-modules
+%ruby_mod_ver_requires_eq
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
